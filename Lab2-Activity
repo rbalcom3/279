@@ -1,0 +1,103 @@
+
+public class Activity {
+	private int day;
+	private int month;
+	private int year;
+
+	public Activity() {
+		day = 1;
+		month= 1;
+		year = 1;
+	}
+
+	public Activity(int dayIn, int monthIn, int yearIn) {
+
+		if(yearIn < 0) {
+			year = 1;
+		}else {
+			year= yearIn;
+		}
+		if(monthIn > 12 || monthIn < 0) {
+			month = 1;
+		}else {
+			month = monthIn;
+		}
+		if(dayIn > 31 || dayIn < 0) {
+			day = 1;
+		}else {
+			day = dayIn;
+		}
+
+	}
+
+	public int getDay() {
+		return day;
+
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setDay(int dayIn) {
+
+		if(dayIn > 31 || dayIn < 0) {
+			day = 1;
+		}else {
+			day = dayIn;
+		}
+	}
+
+	public void setMonth(int monthIn) {
+
+		if(monthIn > 12 || monthIn < 0) {
+			month = 1;
+		}else {
+			month = monthIn;
+		}
+	}
+
+	public void setYear(int yearIn) {
+
+		if(yearIn < 0) {
+			year = 1;
+		}else {
+			year= yearIn;
+		}
+	}
+
+	public void setDate(int inDay, int inMonth, int inYear) {
+
+		if(inYear < 0) {
+			System.out.println("ERROR!");
+		}else {
+			year = inYear;
+		}
+		if(inMonth > 12 || inMonth < 0) {
+			System.out.println("ERROR!");
+		}else {
+			month = inMonth;
+		}
+		if(inDay > 31 || inDay < 0) {
+			System.out.println("ERROR!");
+		}else {
+			day = inDay;
+		}
+
+	}
+
+	public void printDate() {
+		System.out.print(day);
+		System.out.print(".");
+		System.out.print(month);
+		System.out.print(".");
+		System.out.print(year);
+	}
+
+
+
+}
