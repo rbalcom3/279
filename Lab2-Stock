@@ -1,0 +1,151 @@
+import java.util.Arrays;
+
+public class Stock {
+		private int day;
+		private int month;
+		private int year;
+		private String name;
+		private int[] values = new int[7];
+		
+		public Stock() {
+			day = 1;
+			month= 1;
+			year = 1;
+			name = "";
+			Arrays.fill(values, 0);
+					
+		}
+		
+		
+		public Stock(int dayIn, int monthIn, int yearIn, String nameIn, int[] valIn) {
+			
+			if(yearIn < 0) {
+				System.out.println("ERROR!");
+				year = 1;
+			}else {
+				year= yearIn;
+			}
+			if(monthIn > 12 || monthIn < 0) {
+				System.out.println("ERROR!");
+				month = 1;
+			}else {
+				month = monthIn;
+			}
+			if(dayIn > 31 || dayIn < 0) {
+				System.out.println("ERROR!");
+				day = 1;
+			}else {
+				day = dayIn;
+			}
+			name = nameIn;
+			if(valIn.length < 7 || valIn.length > 7) {
+				System.out.println("ERROR!");
+				Arrays.fill(values, 0);
+			}else {
+				for(int i = 0; i < valIn.length; i++) {
+					if(valIn[i] < 0) {
+						System.out.println("ERROR!");
+						Arrays.fill(values, 0);
+					}else{
+						values[i] = valIn[i];
+					}
+				}
+			}
+			
+					
+		}
+		
+		public int getDay() {
+			return day;
+			
+		}
+		
+		public int getMonth() {
+			return month;
+		}
+		
+		public int getYear() {
+			return year;
+		}
+		
+		public String getName() {
+			return name;
+		}
+		
+		public int getValue(int ind) {
+			if(ind > values.length) {
+				System.out.println("ERROR");
+				return -1;
+			}else {
+				return this.values[ind];
+			}
+			
+		}
+		
+		public void setDay(int dayIn) {
+			
+			if(dayIn > 31 || dayIn < 0) {
+				day = 1;
+			}else {
+				day = dayIn;
+			}
+		}
+		
+		public void setMonth(int monthIn) {
+			
+			if(monthIn > 12 || monthIn < 0) {
+				month = 1;
+			}else {
+				month = monthIn;
+			}
+		}
+		
+		public void setYear(int yearIn) {
+			
+			if(yearIn < 0) {
+				year = 1;
+			}else {
+				year= yearIn;
+			}
+		}
+		
+		public void setName(String nameIn) {
+			name = nameIn;
+		}
+		
+		public void setValue(int val, int ind) {
+			if(ind > values.length || val < 0) {
+				System.out.println("ERROR");
+			}else {
+				values[ind] = val;
+			}
+		}
+		
+		
+		public void printStock() {
+			System.out.print(day);
+			System.out.print(".");
+			System.out.print(month);
+			System.out.print(".");
+			System.out.print(year);
+			System.out.print(".");
+			System.out.print(name);
+			System.out.print(".");
+			for(int i = 0; i < values.length; i++) {
+				System.out.print(values[i]);
+				System.out.print(",");
+			}
+			
+		}
+		 public int getMeanValue() {
+			 int sum = 0;
+			 for(int i : values) {
+				 sum += i;
+			 }
+			 
+			 int mean = sum/values.length;
+			 return mean;
+		 }
+		
+
+	}
